@@ -15,7 +15,6 @@ import static org.snowzen.tool.lang.StringUtil.mustNotEmpty;
  * 测试{@link org.snowzen.tool.lang.StringUtil}
  *
  * @author sobre
- * @date 2020/8/12
  */
 public class StringUtilTest {
 

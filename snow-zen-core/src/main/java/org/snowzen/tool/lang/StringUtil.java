@@ -5,7 +5,6 @@ package org.snowzen.tool.lang;
  * {@link String}的操作工具类
  *
  * @author sobre
- * @date 2020/3/5
  */
 public final class StringUtil {
 
