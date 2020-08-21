@@ -8,6 +8,8 @@ package org.snowzen.tool.lang;
  */
 public final class StringUtil {
 
+    public final static String EMPTY_STRING = "";
+
     // Suppresses default constructor, ensuring non-instantiability.
     private StringUtil() {
     }
@@ -49,6 +51,33 @@ public final class StringUtil {
     }
 
     /**
+     * 翻转字符串中的单词顺序
+     *
+     * @param src 翻转的原字符，可以为 {@code null}
+     * @return 当字符串为 {@code null} 或 {@code length() == 0} 时返回 {@code ""}；否则返回翻转字符串
+     */
+    public static String flipWord(String src) {
+        if (isEmpty(src) || src.trim().length() == 0) {
+            return StringUtil.EMPTY_STRING;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        char[] charArr = trimStartAndEnd(src).toCharArray();
+        int r = charArr.length, l = r - 1;
+
+        while (l >= 0) {
+            if (charArr[l] == ' ') {
+                appendTo(sb, charArr, l + 1, r);
+                sb.append(' ');
+                r = l;
+            }
+            l--;
+        }
+        appendTo(sb, charArr, 0, r);
+        return sb.toString();
+    }
+
+    /**
      * 字符串首字母大写
      *
      * @param str 源字符串
@@ -86,6 +115,38 @@ public final class StringUtil {
             if (isEmpty(string)) {
                 throw new IllegalArgumentException("string must not null");
             }
+        }
+    }
+
+    /**
+     * 清除字符前后的空格
+     *
+     * @param src 源字符，可以为 {@code null}
+     * @return 当字符串为 {@code null} 或 {@code length() == 0} 时返回 {@code ""}；否则返回清除后的字符串
+     */
+    public static String trimStartAndEnd(String src) {
+        if (isEmpty(src) || src.trim().length() == 0) {
+            return StringUtil.EMPTY_STRING;
+        }
+
+        int l = 0, r = src.length() - 1;
+        final char space = ' ';
+
+        while (src.charAt(l) == space) {
+            l++;
+        }
+        while (src.charAt(r) == space) {
+            r--;
+        }
+        return src.substring(l, r + 1);
+    }
+
+    /**
+     * 将字符数组指定索引位置之内的添加到{@link StringBuilder}中去，添加范围为[charArr[from], charArr[to])
+     */
+    private static void appendTo(StringBuilder sb, char[] charArr, int from, int to) {
+        for (int i = from; i < to; i++) {
+            sb.append(charArr[i]);
         }
     }
 

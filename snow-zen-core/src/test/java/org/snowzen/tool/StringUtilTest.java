@@ -7,9 +7,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.snowzen.tool.lang.StringUtil.ensureStringBegin;
 import static org.snowzen.tool.lang.StringUtil.ensureStringEnd;
+import static org.snowzen.tool.lang.StringUtil.flipWord;
 import static org.snowzen.tool.lang.StringUtil.initialsToUpperCase;
 import static org.snowzen.tool.lang.StringUtil.isEmpty;
 import static org.snowzen.tool.lang.StringUtil.mustNotEmpty;
+import static org.snowzen.tool.lang.StringUtil.trimStartAndEnd;
 
 /**
  * 测试{@link org.snowzen.tool.lang.StringUtil}
@@ -19,6 +21,14 @@ import static org.snowzen.tool.lang.StringUtil.mustNotEmpty;
 public class StringUtilTest {
 
     private static final String ACTUAL_STR = "TestSobre";
+
+    @Test
+    public void testTrimStartAndEnd() {
+        final String expect = "Sobre love I";
+        assertEquals(trimStartAndEnd("   Sobre love I   "), expect);
+        assertEquals(trimStartAndEnd("   Sobre love I"), expect);
+        assertEquals(trimStartAndEnd("Sobre love I   "), expect);
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void testEmpty() {
@@ -36,6 +46,15 @@ public class StringUtilTest {
     public void testEnsureStringEnd() {
         String str = "Testxxxxx";
         assertEquals(ensureStringEnd(str, "Sobre"), ACTUAL_STR);
+    }
+
+    @Test
+    public void testFlipWord() {
+        final String expect = "Sobre love I";
+        assertEquals(flipWord("I love Sobre"), expect);
+        assertEquals(flipWord("  I love Sobre  "), expect);
+        assertEquals(flipWord("  I love Sobre"), expect);
+        assertEquals(flipWord("I love Sobre  "), expect);
     }
 
     @Test
