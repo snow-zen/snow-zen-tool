@@ -1,6 +1,10 @@
 package org.snowzen.tool.lang;
 
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * {@link String}的操作工具类
  *
@@ -61,20 +65,9 @@ public final class StringUtil {
             return StringUtil.EMPTY_STRING;
         }
 
-        StringBuilder sb = new StringBuilder();
-        char[] charArr = trimStartAndEnd(src).toCharArray();
-        int r = charArr.length, l = r - 1;
-
-        while (l >= 0) {
-            if (charArr[l] == ' ') {
-                appendTo(sb, charArr, l + 1, r);
-                sb.append(' ');
-                r = l;
-            }
-            l--;
-        }
-        appendTo(sb, charArr, 0, r);
-        return sb.toString();
+        List<String> words = Arrays.asList(src.trim().split("\\s+"));
+        Collections.reverse(words);
+        return String.join(" ",words);
     }
 
     /**
@@ -116,29 +109,6 @@ public final class StringUtil {
                 throw new IllegalArgumentException("string must not null");
             }
         }
-    }
-
-    /**
-     * 清除字符前后的空格
-     *
-     * @param src 源字符，可以为 {@code null}
-     * @return 当字符串为 {@code null} 或 {@code length() == 0} 时返回 {@code ""}；否则返回清除后的字符串
-     */
-    public static String trimStartAndEnd(String src) {
-        if (isEmpty(src) || src.trim().length() == 0) {
-            return StringUtil.EMPTY_STRING;
-        }
-
-        int l = 0, r = src.length() - 1;
-        final char space = ' ';
-
-        while (src.charAt(l) == space) {
-            l++;
-        }
-        while (src.charAt(r) == space) {
-            r--;
-        }
-        return src.substring(l, r + 1);
     }
 
     /**
