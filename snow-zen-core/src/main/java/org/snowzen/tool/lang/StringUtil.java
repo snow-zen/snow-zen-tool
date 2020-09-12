@@ -67,7 +67,7 @@ public final class StringUtil {
 
         List<String> words = Arrays.asList(src.trim().split("\\s+"));
         Collections.reverse(words);
-        return String.join(" ",words);
+        return String.join(" ", words);
     }
 
     /**
