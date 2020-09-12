@@ -1,4 +1,4 @@
-package org.snowzen.tool;
+package org.snowzen.tool.lang;
 
 import org.junit.Test;
 
