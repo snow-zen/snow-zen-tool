@@ -14,10 +14,6 @@ public final class StringUtil {
 
     public final static String EMPTY_STRING = "";
 
-    // Suppresses default constructor, ensuring non-instantiability.
-    private StringUtil() {
-    }
-
     /**
      * 确认 {@code src} 是否包含指定前缀 {@code prefix} ，如果不包含则进行替换
      *

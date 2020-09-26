@@ -10,16 +10,12 @@ import java.util.Set;
  *
  * @author sobre
  */
-public class ArrayUtil {
+public final class ArrayUtil {
 
     /**
      * 用于去重的BitSet
      */
     private static final ThreadLocal<BitSet> LOCAL_BIT_SET = new ThreadLocal<>();
-
-    // Suppresses default constructor, ensuring non-instantiability.
-    private ArrayUtil() {
-    }
 
     /**
      * byte数组去重，保证去重后数组中元素顺序不变

@@ -5,7 +5,7 @@ package org.snowzen.tool.lang;
  *
  * @author sobre
  */
-public class ByteUtil {
+public final class ByteUtil {
 
     /**
      * 字节数组转字符串
