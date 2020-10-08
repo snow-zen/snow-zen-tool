@@ -10,7 +10,7 @@ import static org.snowzen.tool.regex.RegExpConstant.*;
  * @author sobre
  * @see RegExpConstant
  */
-public class RegExpMatcher {
+public final class RegExpMatcher {
 
     private static boolean match(Pattern pattern, CharSequence input) {
         if (input != null && input.length() > 0) {
