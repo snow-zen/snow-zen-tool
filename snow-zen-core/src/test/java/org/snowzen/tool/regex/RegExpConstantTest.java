@@ -1,18 +1,15 @@
 package org.snowzen.tool.regex;
 
-import org.apache.pdfbox.util.Hex;
 import org.junit.Test;
-
-import javax.swing.text.html.HTML;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
-import static org.snowzen.tool.regex.RegularPatternConstant.*;
+import static org.snowzen.tool.regex.RegExpConstant.*;
 
 /**
- * 测试{@link RegularPatternConstant}
+ * 测试{@link RegExpConstant}
  */
-public class RegularPatternConstantTest {
+public class RegExpConstantTest {
 
     @Test
     public void testMobilePhone() {

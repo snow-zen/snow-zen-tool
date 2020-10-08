@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  *
  * @author sobre
  */
-public final class RegularPatternConstant {
+public final class RegExpConstant {
 
     /**
      * 手机号匹配

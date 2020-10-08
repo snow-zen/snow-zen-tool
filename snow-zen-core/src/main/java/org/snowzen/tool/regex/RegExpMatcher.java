@@ -1,13 +1,13 @@
 package org.snowzen.tool.regex;
 
-import static org.snowzen.tool.regex.RegularPatternConstant.*;
+import static org.snowzen.tool.regex.RegExpConstant.*;
 
 /**
- * 正则匹配器，依赖于{@link RegularPatternConstant}中定义的规则进行匹配
+ * 正则匹配器，依赖于{@link RegExpConstant}中定义的规则进行匹配
  *
  * @author sobre
  */
-public class RegularPatternMatcher {
+public class RegExpMatcher {
 
     public static boolean matchMobilePhone(CharSequence input) {
         return MOBILE_PHONE_MATCH.matcher(input).matches();
