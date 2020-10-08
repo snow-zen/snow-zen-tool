@@ -8,7 +8,6 @@ import java.util.List;
  * 通过反射获取类的成员变量信息工具
  *
  * @author sobre
- * @date 2020/3/5
  */
 public class FieldUtil {
 
